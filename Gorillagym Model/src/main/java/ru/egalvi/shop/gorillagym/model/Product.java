@@ -1,9 +1,11 @@
 package ru.egalvi.shop.gorillagym.model;
 
+import ru.egalvi.shop.CartItem;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class Product implements Serializable {
+public class Product implements Serializable, CartItem {
     private final String id;
     private final String name;
     private final String description;
@@ -41,8 +43,7 @@ public class Product implements Serializable {
 
         if (id != null ? !id.equals(product.id) : product.id != null) return false;
         if (name != null ? !name.equals(product.name) : product.name != null) return false;
-        if (description != null ? !description.equals(product.description) : product.description != null) return false;
-        return Arrays.equals(image, product.image);
+        return !(description != null ? !description.equals(product.description) : product.description != null) && Arrays.equals(image, product.image);
 
     }
 
