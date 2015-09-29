@@ -9,6 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cart</artifactId>
+    <artifactId>gorillagym-cart</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.egalvi.shop</groupId>
+            <artifactId>cart</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
