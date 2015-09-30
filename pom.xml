@@ -13,6 +13,7 @@
         <module>Gorillagym Model</module>
         <module>Test Content Service</module>
         <module>gorillagym-cart</module>
+        <module>gorillagym-content-service</module>
     </modules>
 
 
