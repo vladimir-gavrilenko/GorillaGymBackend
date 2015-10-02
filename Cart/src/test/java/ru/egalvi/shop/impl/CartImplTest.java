@@ -30,6 +30,13 @@ public class CartImplTest {
         Assert.assertEquals(Integer.valueOf(4), cart.getOrder().get(item2));
     }
 
+    @Test(expected = RuntimeException.class)
+    public void testAddNegative() throws Exception {
+        Assert.assertTrue(cart.getOrder().isEmpty());
+        CartItem item1 = new TestCartItem("item1");
+        cart.add(item1, -1);
+    }
+
     @Test
     public void testRemove() throws Exception {
         Assert.assertTrue(cart.getOrder().isEmpty());
@@ -48,6 +55,32 @@ public class CartImplTest {
         cart.remove(item2, 3);
         Assert.assertNull(cart.getOrder().get(item1));
         Assert.assertEquals(Integer.valueOf(1), cart.getOrder().get(item2));
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testRemoveNegative() throws Exception {
+        Assert.assertTrue(cart.getOrder().isEmpty());
+        CartItem item1 = new TestCartItem("item1");
+        CartItem item2 = new TestCartItem("item2");
+        cart.add(item1, 3);
+        cart.add(item2, 4);
+        Assert.assertEquals(Integer.valueOf(3), cart.getOrder().get(item1));
+        Assert.assertEquals(Integer.valueOf(4), cart.getOrder().get(item2));
+
+        cart.remove(item1, -1);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testRemoveNegativeResult() throws Exception {
+        Assert.assertTrue(cart.getOrder().isEmpty());
+        CartItem item1 = new TestCartItem("item1");
+        CartItem item2 = new TestCartItem("item2");
+        cart.add(item1, 3);
+        cart.add(item2, 4);
+        Assert.assertEquals(Integer.valueOf(3), cart.getOrder().get(item1));
+        Assert.assertEquals(Integer.valueOf(4), cart.getOrder().get(item2));
+
+        cart.remove(item1, 4);
     }
 
     private class TestCartItem implements CartItem {
