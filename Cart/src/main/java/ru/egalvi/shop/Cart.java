@@ -11,4 +11,6 @@ public interface Cart extends Serializable {
     void remove(CartItem item, int quantity);
 
     Map<CartItem, Integer> getOrder();
+
+    double getTotalPrice();
 }

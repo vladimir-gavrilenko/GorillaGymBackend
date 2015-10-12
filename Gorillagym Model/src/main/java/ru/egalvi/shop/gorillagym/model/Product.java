@@ -4,18 +4,21 @@ import ru.egalvi.shop.CartItem;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Currency;
 
 public class Product implements Serializable, CartItem {
     private final String id;
     private final String name;
     private final String description;
     private final byte[] image;
+    private final double price;//TODO possible problems for money
 
-    public Product(String id, String name, String description, byte[] image) {
+    public Product(String id, String name, String description, double price, byte[] image) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.image = image;
+        this.price = price;
     }
 
     public String getId() {
@@ -32,6 +35,10 @@ public class Product implements Serializable, CartItem {
 
     public byte[] getImage() {
         return image;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     @Override

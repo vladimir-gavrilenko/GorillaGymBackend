@@ -94,6 +94,14 @@ public class CartImplTest {
             return foo;
         }
 
+        public String getName() {
+            return "foo";
+        }
+
+        public double getPrice() {
+            return 10.0;
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

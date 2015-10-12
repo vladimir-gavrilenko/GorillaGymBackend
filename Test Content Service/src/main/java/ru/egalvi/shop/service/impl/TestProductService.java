@@ -20,9 +20,9 @@ public class TestProductService implements ProductService {
         CategoryService categoryService = new TestCategoryService();
         for (Category category : categoryService.getAll()){
             List<Product> products = new ArrayList<Product>();
-            products.add(new Product("1", "Prod 1 of " + category.getName(), "descr 1", null));
-            products.add(new Product("2", "Prod 2 of " + category.getName(), "descr 2", null));
-            products.add(new Product("3", "Prod 3 of " + category.getName(), "descr 3", null));
+            products.add(new Product("1", "Prod 1 of " + category.getName(), "descr 1", 10.0, null));
+            products.add(new Product("2", "Prod 2 of " + category.getName(), "descr 2", 10.0, null));
+            products.add(new Product("3", "Prod 3 of " + category.getName(), "descr 3", 10.0, null));
             categoryProductMap.put(category, products);
         }
     }

@@ -1,10 +1,8 @@
 package ru.egalvi.shop.gorillagym.model;
 
-import ru.egalvi.shop.CartItem;
-
 import java.io.Serializable;
 
-public class Category implements Serializable, CartItem {
+public class Category implements Serializable {
     private final String id;
     private final String name;
 

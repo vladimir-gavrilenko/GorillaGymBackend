@@ -28,4 +28,12 @@ public class CartImpl implements Cart {
     public Map<CartItem, Integer> getOrder() {
         return Collections.unmodifiableMap(items);
     }
+
+    public double getTotalPrice() {
+        double totalPrice = 0.0;
+        for (CartItem item : items.keySet()){
+            totalPrice += item.getPrice() * items.get(item);
+        }
+        return totalPrice;
+    }
 }
