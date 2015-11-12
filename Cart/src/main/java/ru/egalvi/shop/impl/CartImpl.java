@@ -36,4 +36,8 @@ public class CartImpl implements Cart {
         }
         return totalPrice;
     }
+
+    public void clear(){
+        items.clear();
+    }
 }

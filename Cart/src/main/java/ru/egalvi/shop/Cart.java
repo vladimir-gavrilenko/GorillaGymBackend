@@ -13,4 +13,6 @@ public interface Cart extends Serializable {
     Map<CartItem, Integer> getOrder();
 
     double getTotalPrice();
+
+    void clear();
 }
