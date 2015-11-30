@@ -13,10 +13,10 @@ public class TestCategoryService implements CategoryService {
 
     public TestCategoryService() {
         categories = new ArrayList<Category>();
-        categories.add(new Category("1", "Foo"));
-        categories.add(new Category("2", "Bar"));
-        categories.add(new Category("3", "Baz"));
-        categories.add(new Category("4", "FooBar"));
+        categories.add(new Category("1", "Foo", "descr 1"));
+        categories.add(new Category("2", "Bar", "descr 1"));
+        categories.add(new Category("3", "Baz", "descr 1"));
+        categories.add(new Category("4", "FooBar", "descr 1"));
     }
 
     public List<Category> getAll() {

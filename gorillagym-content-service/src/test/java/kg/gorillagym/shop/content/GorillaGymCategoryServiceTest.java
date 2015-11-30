@@ -20,8 +20,9 @@ public class GorillaGymCategoryServiceTest {
     }
 
     @Test
-    @Ignore("This is integration test")
+//    @Ignore("This is integration test")
     public void testGetAll() throws Exception {
         List<Category> all = categoryService.getAll();
+        System.out.println(all);
     }
 }

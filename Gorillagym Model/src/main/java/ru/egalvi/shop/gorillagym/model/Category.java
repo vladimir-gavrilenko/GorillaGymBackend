@@ -3,12 +3,17 @@ package ru.egalvi.shop.gorillagym.model;
 import java.io.Serializable;
 
 public class Category implements Serializable {
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
+    private String descr;
 
-    public Category(String id, String name) {
+    public Category() {
+    }
+
+    public Category(String id, String name, String descr) {
         this.id = id;
         this.name = name;
+        this.descr = descr;
     }
 
     public String getId() {
@@ -17,6 +22,10 @@ public class Category implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getDescr() {
+        return descr;
     }
 
     @Override

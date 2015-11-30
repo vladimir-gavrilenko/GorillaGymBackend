@@ -24,8 +24,9 @@ public class GorillaGymProductServiceTest {
     }
 
     @Test
-    @Ignore("This is integration test")
+//    @Ignore("This is integration test")
     public void testGetAll() throws Exception {
         List<Product> products = productService.getForCategory(categoryService.getAll().get(0));
+        System.out.println(products);
     }
 }
