@@ -14,6 +14,7 @@ public class Product implements Serializable, CartItem {
     private double oldprice;//TODO possible problems for money
     private String bonus;
     private String number;
+    private byte[] imageData;
 
     public Product() {
     }
@@ -60,6 +61,14 @@ public class Product implements Serializable, CartItem {
 
     public String getNumber() {
         return number;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 
     @Override
