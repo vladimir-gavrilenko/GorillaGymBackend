@@ -1,6 +1,5 @@
 package ru.egalvi.shop.impl;
 
-import com.sun.org.apache.regexp.internal.CharacterArrayCharacterIterator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

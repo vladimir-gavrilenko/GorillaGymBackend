@@ -8,15 +8,15 @@ import ru.egalvi.shop.ClientData;
 
 /**
  */
-public class GorillaGymCart implements CartService {
+public class GorillaGymCartService implements CartService {
     private final RestClient restClient;
 
-    public GorillaGymCart() {
+    public GorillaGymCartService() {
         //TODO move URL to settings
         restClient = RestClientFactory.create("http://100pudov.kg");
     }
     public void checkout(Cart cart, ClientData clientData) {
         //TODO implement
-        restClient.submitOrder(cart, clientData);
+        restClient.submitOrder(new Order(cart, clientData));
     }
 }

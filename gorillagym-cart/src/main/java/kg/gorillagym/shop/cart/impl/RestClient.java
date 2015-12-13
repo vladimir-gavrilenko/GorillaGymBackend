@@ -1,14 +1,17 @@
 package kg.gorillagym.shop.cart.impl;
 
-import kg.gorillagym.shop.cart.GorillaGymClientData;
+import kg.gorillagym.shop.cart.Order;
+import retrofit.Call;
+import retrofit.http.GET;
 import retrofit.http.POST;
-import ru.egalvi.shop.Cart;
-import ru.egalvi.shop.ClientData;
+import retrofit.http.Query;
 
 /**
  */
 public interface RestClient {
-    @POST("/api/cart")
-    //TODO
-    void  submitOrder(Cart cart, ClientData clientData);
+    @POST("/api/submit_order")
+    void submitOrder(Order order);
+
+    @GET("/api/capture")
+    Call<byte[]> getCapture(@Query("token") String token);
 }
