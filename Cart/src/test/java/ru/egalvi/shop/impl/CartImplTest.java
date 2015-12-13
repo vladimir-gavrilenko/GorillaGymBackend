@@ -89,7 +89,7 @@ public class CartImplTest {
             this.foo = foo;
         }
 
-        public String getFoo() {
+        public String getId() {
             return foo;
         }
 
