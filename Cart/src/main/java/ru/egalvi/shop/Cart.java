@@ -12,6 +12,7 @@ public interface Cart extends Serializable {
 
     Map<CartItem, Integer> getOrder();
 
+    //TODO change double to BigDecimal
     double getTotalPrice();
 
     void clear();

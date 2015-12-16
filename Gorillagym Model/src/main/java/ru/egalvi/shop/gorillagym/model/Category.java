@@ -6,6 +6,7 @@ public class Category implements Serializable {
     private String id;
     private String name;
     private String descr;
+    private int sort;
 
     public Category() {
     }
@@ -14,6 +15,11 @@ public class Category implements Serializable {
         this.id = id;
         this.name = name;
         this.descr = descr;
+    }
+
+    public Category(String id, String name, String descr, int sort) {
+        this(id, name, descr);
+        this.sort = sort;
     }
 
     public String getId() {
@@ -26,6 +32,14 @@ public class Category implements Serializable {
 
     public String getDescr() {
         return descr;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
     }
 
     @Override
@@ -51,6 +65,7 @@ public class Category implements Serializable {
         return "ru.egalvi.shop.gorillagym.model.Category{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", sort='" + sort + '\'' +
                 '}';
     }
 }
