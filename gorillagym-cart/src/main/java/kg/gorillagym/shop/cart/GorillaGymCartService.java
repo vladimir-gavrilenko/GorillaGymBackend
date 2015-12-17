@@ -1,5 +1,6 @@
 package kg.gorillagym.shop.cart;
 
+import static kg.gorillagym.shop.Constants.URL;
 import kg.gorillagym.shop.cart.impl.RestClient;
 import kg.gorillagym.shop.cart.impl.RestClientFactory;
 import ru.egalvi.shop.Cart;
@@ -18,7 +19,7 @@ public class GorillaGymCartService implements CartService {
 
     public GorillaGymCartService() {
         //TODO move URL to settings
-        restClient = RestClientFactory.create("http://100pudov.kg");
+        restClient = RestClientFactory.create(URL);
     }
 
     public void checkout(Cart cart, ClientData clientData) {

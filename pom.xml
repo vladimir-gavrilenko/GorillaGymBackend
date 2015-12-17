@@ -14,6 +14,7 @@
         <module>Test Content Service</module>
         <module>gorillagym-cart</module>
         <module>gorillagym-content-service</module>
+        <module>Constants</module>
     </modules>
 
 

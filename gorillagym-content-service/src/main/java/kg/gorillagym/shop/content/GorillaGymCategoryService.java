@@ -1,5 +1,6 @@
 package kg.gorillagym.shop.content;
 
+import static kg.gorillagym.shop.Constants.URL;
 import kg.gorillagym.shop.content.impl.RestClient;
 import kg.gorillagym.shop.content.impl.RestClientFactory;
 import retrofit.Call;
@@ -19,7 +20,7 @@ public class GorillaGymCategoryService implements CategoryService {
 
     public GorillaGymCategoryService() {
         //TODO move URL to settings
-        restClient = RestClientFactory.create("http://100pudov.kg");
+        restClient = RestClientFactory.create(URL);
     }
 
     // visible for testing

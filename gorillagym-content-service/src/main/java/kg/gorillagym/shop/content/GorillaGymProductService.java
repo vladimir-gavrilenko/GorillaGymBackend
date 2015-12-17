@@ -1,5 +1,6 @@
 package kg.gorillagym.shop.content;
 
+import static kg.gorillagym.shop.Constants.URL;
 import kg.gorillagym.shop.content.impl.RestClient;
 import kg.gorillagym.shop.content.impl.RestClientFactory;
 import org.apache.commons.io.IOUtils;
@@ -21,7 +22,7 @@ public class GorillaGymProductService implements ProductService {
 
     public GorillaGymProductService() {
         //TODO move URL to settings
-        restClient = RestClientFactory.create("http://100pudov.kg");
+        restClient = RestClientFactory.create(URL);
     }
 
     public List<Product> getForCategory(Category category) {
