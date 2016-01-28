@@ -38,13 +38,16 @@ public class GorillaGymCategoryService implements CategoryService {
             List<Category> result = categories.execute().body();
             Collections.sort(result, new CategorySortComparator());
             for (Category category : result) {
-                String url = CATEGORY_BASE_URL + "/" + category.getImg();
-                try(InputStream in = new URL(url).openStream()) {
-                    byte[] bytes = IOUtils.toByteArray(in);
-                    category.setImageData(bytes);
-                } catch (IOException e) {
-                    //TODO make own exception and handle it somewhere
-                    throw new RuntimeException(e);
+                String imgUrl = category.getImg();
+                if(imgUrl != null && !imgUrl.equals("")) {
+                    String url = CATEGORY_BASE_URL + "/" + category.getImg();
+                    try (InputStream in = new URL(url).openStream()) {
+                        byte[] bytes = IOUtils.toByteArray(in);
+                        category.setImageData(bytes);
+                    } catch (IOException e) {
+                        //TODO make own exception and handle it somewhere
+                        throw new RuntimeException(e);
+                    }
                 }
             }
             return result;

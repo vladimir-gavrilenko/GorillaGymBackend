@@ -9,16 +9,16 @@ import ru.egalvi.shop.gorillagym.model.CategorySortComparator;
 import ru.egalvi.shop.gorillagym.model.Product;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import ru.egalvi.shop.gorillagym.model.Category;
 import ru.egalvi.shop.gorillagym.service.CategoryService;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  */
@@ -39,22 +39,23 @@ public class GorillaGymCategoryServiceTest {
     }
 
     @Test
-    @Ignore
     public void testGetAllSorted() throws Exception {
         ((GorillaGymCategoryService)categoryService)
                 .setRestClient(new MockRestClient());
         List<Category> categories = categoryService.getAll();
         for (Category item : categories) System.out.println(item);
-        assertListSorted(categories);
+        assertTrue(isListSorted(categories, new CategorySortComparator()));
     }
 
-    private boolean isFirstLessThanSecond(Category first, Category second) {
-        return new CategorySortComparator().compare(first, second)< 0;
-    }
-
-    private void assertListSorted(List<Category> list) {
-        for (int i = 0; i < list.size() - 1; i++)
-            assertTrue(isFirstLessThanSecond(list.get(i), list.get(i + 1)));
+    public static <T> boolean isListSorted(List<T> list, Comparator<T> comparator) {
+        T prev = null;
+        for(T elem : list) {
+            if(prev != null && comparator.compare(prev, elem) > 0) {
+                return false;
+            }
+            prev = elem;
+        }
+        return true;
     }
 
     private class MockRestClient implements RestClient {
