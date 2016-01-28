@@ -39,6 +39,7 @@ public class GorillaGymCategoryServiceTest {
     }
 
     @Test
+    @Ignore
     public void testGetAllSorted() throws Exception {
         ((GorillaGymCategoryService)categoryService)
                 .setRestClient(new MockRestClient());
