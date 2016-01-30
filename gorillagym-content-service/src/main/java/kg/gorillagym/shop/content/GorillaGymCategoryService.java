@@ -40,7 +40,7 @@ public class GorillaGymCategoryService implements CategoryService {
             for (Category category : result) {
                 String imgUrl = category.getImg();
                 if(imgUrl != null && !imgUrl.equals("")) {
-                    String url = CATEGORY_BASE_URL + "/" + category.getImg();
+                    String url = CATEGORY_BASE_URL + "/" + imgUrl;
                     try (InputStream in = new URL(url).openStream()) {
                         byte[] bytes = IOUtils.toByteArray(in);
                         category.setImageData(bytes);

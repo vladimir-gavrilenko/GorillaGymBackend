@@ -15,6 +15,7 @@
         <module>gorillagym-cart</module>
         <module>gorillagym-content-service</module>
         <module>Constants</module>
+        <module>Cache</module>
     </modules>
 
 

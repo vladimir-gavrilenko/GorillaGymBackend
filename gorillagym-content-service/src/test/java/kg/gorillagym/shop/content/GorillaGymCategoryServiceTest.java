@@ -1,6 +1,7 @@
 package kg.gorillagym.shop.content;
 
 import kg.gorillagym.shop.content.impl.RestClient;
+import org.junit.Ignore;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
@@ -32,7 +33,7 @@ public class GorillaGymCategoryServiceTest {
     }
 
     @Test
-//    @Ignore("This is integration test")
+    @Ignore("This is integration test")
     public void testGetAll() throws Exception {
         List<Category> all = categoryService.getAll();
         for (Category item : all) System.out.println(item);
