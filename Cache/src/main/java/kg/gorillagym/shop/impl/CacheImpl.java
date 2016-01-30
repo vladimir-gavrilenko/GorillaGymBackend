@@ -1,6 +1,6 @@
 package kg.gorillagym.shop.impl;
 
-//import android.content.Context;
+import android.content.Context;
 
 import com.vincentbrison.openlibraries.android.dualcache.lib.DualCache;
 import com.vincentbrison.openlibraries.android.dualcache.lib.DualCacheBuilder;
@@ -33,8 +33,8 @@ public class CacheImpl implements Cache {
 
     private DualCache<Cart> cartCache;
 
-    public CacheImpl(/*Context context*/) {
-//        DualCacheContextUtils.setContext(context);
+    public CacheImpl(Context context) {
+        DualCacheContextUtils.setContext(context);
         productCache =
                 new DualCacheBuilder<>(PRODUCT_CACHE_NAME, APP_VERSION, ProductCacheHolder.class)
                         .useReferenceInRam(RAM_MAX_SIZE, new SizeOfProductCacheHolder())
