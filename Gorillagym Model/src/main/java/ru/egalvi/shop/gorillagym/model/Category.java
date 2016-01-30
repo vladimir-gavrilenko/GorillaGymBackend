@@ -1,7 +1,6 @@
 package ru.egalvi.shop.gorillagym.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Category implements Serializable {
     private String id;
@@ -70,17 +69,23 @@ public class Category implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Category category = (Category) o;
-        return sort == category.sort &&
-                Objects.equals(id, category.id) &&
-                Objects.equals(name, category.name) &&
-                Objects.equals(descr, category.descr) &&
-                Objects.equals(img, category.img);
+
+        if (id != null ? !id.equals(category.id) : category.id != null) return false;
+        if (name != null ? !name.equals(category.name) : category.name != null) return false;
+        if (descr != null ? !descr.equals(category.descr) : category.descr != null) return false;
+        return !(img != null ? !img.equals(category.img) : category.img != null);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, descr, sort, img);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (descr != null ? descr.hashCode() : 0);
+        result = 31 * result + (img != null ? img.hashCode() : 0);
+        return result;
     }
 
     @Override
