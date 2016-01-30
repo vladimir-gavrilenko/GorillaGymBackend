@@ -1,12 +1,15 @@
 package ru.egalvi.shop.gorillagym.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Category implements Serializable {
     private String id;
     private String name;
     private String descr;
     private int sort;
+    private String img;
+    private byte[] imageData;
 
     public Category() {
     }
@@ -20,6 +23,11 @@ public class Category implements Serializable {
     public Category(String id, String name, String descr, int sort) {
         this(id, name, descr);
         this.sort = sort;
+    }
+
+    public Category(String id, String name, String descr, int sort, String img) {
+        this(id, name, descr, sort);
+        this.img = img;
     }
 
     public String getId() {
@@ -38,6 +46,22 @@ public class Category implements Serializable {
         return sort;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
+
     public void setSort(int sort) {
         this.sort = sort;
     }
@@ -46,18 +70,17 @@ public class Category implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Category category = (Category) o;
-
-        return !(id != null ? !id.equals(category.id) : category.id != null) && !(name != null ? !name.equals(category.name) : category.name != null);
-
+        return sort == category.sort &&
+                Objects.equals(id, category.id) &&
+                Objects.equals(name, category.name) &&
+                Objects.equals(descr, category.descr) &&
+                Objects.equals(img, category.img);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, descr, sort, img);
     }
 
     @Override
@@ -66,6 +89,7 @@ public class Category implements Serializable {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", sort='" + sort + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }
